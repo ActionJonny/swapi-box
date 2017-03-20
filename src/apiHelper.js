@@ -3,14 +3,13 @@ export default class APIHelper {
     this.baseURL = 'https://swapi.co/api/'
   }
 
-  getAll(catagory) {
+  getAll(catagory, callback) {
     fetch(`${this.baseURL}${catagory}`)
       .then((response) => {
         return response.json()
       })
       .then((result) => {
-        console.log(result)
-        return result
+        callback(result)
       })
     //fetch(api/catagory)
   }
