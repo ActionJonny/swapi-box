@@ -14,12 +14,13 @@ class App extends Component {
 
   componentDidMount() {
     console.log('the Component did mount!')
-    const films = this.APIGuy.getAll('films', (data) => this.dataArrival(data))
+    const films = this.APIGuy.getAll('films', (data) => this.filmDataArrivalHandler(data))
   }
 
-  dataArrival(data) {
+  filmDataArrivalHandler(data) {
     console.log(data);
-    this.setState({ film: data.results[getRandomArbitrary(0, data.results.length)] })
+    const randoFilm = data.results[getRandomArbitrary(0, data.results.length)]
+    this.setState({ film: randoFilm })
   }
 
   render() {

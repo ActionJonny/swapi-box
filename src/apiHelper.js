@@ -4,6 +4,7 @@ export default class APIHelper {
   }
 
   getAll(catagory, callback) {
+    //fetch(api/catagory)
     fetch(`${this.baseURL}${catagory}`)
       .then((response) => {
         return response.json()
@@ -11,10 +12,9 @@ export default class APIHelper {
       .then((result) => {
         callback(result)
       })
-    //fetch(api/catagory)
   }
 
-  callAPI(catagory, APIid) {
+  callAPI(catagory, APIid, callback) {
     //fetch(api/catagory/APIid)
   }
 }
