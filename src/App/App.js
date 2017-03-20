@@ -9,7 +9,7 @@ class App extends Component {
   constructor () {
     super()
     this.APIGuy = new APIHelper()
-    this.state = { film: {opening_crawl: ''} }
+    this.state = { film: { opening_crawl: '', title: '' } }
   }
 
   componentDidMount() {
