@@ -28,8 +28,16 @@ class App extends Component {
   }
 
   navDataArrivalHandler(data) {
-    console.log(data.results)
     this.setState({ displayedCards: data.results })
+  }
+
+  peopleDataArrivalHandler(data) {
+    const peepsArray = data.results
+    for (var i = 0; i < peepsArray.length; i++) {
+      console.log(peepsArray[i].homeworld)
+      fetch(peepsArray[i].homeworld).then(response => response.json()).then(data => console.log(data))
+    }
+    console.log(peepsArray)
   }
 
 
@@ -63,7 +71,7 @@ class App extends Component {
           <h2>Welcome to SWAPIbox!</h2>
           <Navigation handleClick={this.handleClick.bind(this)}/>
         </div>
-        <CardWrapper display={this.state.displayedCards}/>
+        <CardWrapper api={this.APIGuy} display={this.state.displayedCards}/>
         <FilmScroll film={this.state.film}/>
       </div>
     )
