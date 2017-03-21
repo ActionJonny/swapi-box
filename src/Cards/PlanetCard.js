@@ -7,7 +7,6 @@ class Card extends Component {
   }
 
   render() {
-    console.log(this.props.info);
     return (
       <div className="card">
         <button>Star</button>
