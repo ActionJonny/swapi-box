@@ -9,6 +9,7 @@ class Card extends Component {
   render() {
     return (
       <div className="card">
+        <button>Star</button>
         <p>{ this.props.info.name }</p>
         <p>{ this.state.species } </p>
         <p>{ this.state.homeworld }</p>
