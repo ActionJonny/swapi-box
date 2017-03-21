@@ -14,7 +14,7 @@ class App extends Component {
     this.APIGuy = new APIHelper()
     this.state = {
       film: { opening_crawl: '', title: '' },
-      displayedCards: []
+      displayedCards: [{buttonType: 'people'}],
     }
   }
 
