@@ -9,13 +9,13 @@ export default class Navigation extends Component {
   click(button) {
     this.props.handleClick(button)
   }
-  
+
   render() {
     return (
       <div className="navigation">
         <button onClick={() => this.click('people')} >People</button>
-        <button>Planets</button>
-        <button>Vehicles</button>
+        <button onClick={() => this.click('planets')}>Planets</button>
+        <button onClick={() => this.click('vehicles')}>Vehicles</button>
       </div>
     )
   }
