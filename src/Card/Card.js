@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
-const Card = (props) => {
+const Card = ({ info }) => {
+  console.log(info)
   return (
     <div className="card">
-      here is  great cat!
+      { info.name }
     </div>
   )
 }

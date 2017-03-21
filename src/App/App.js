@@ -27,19 +27,9 @@ class App extends Component {
     this.setState({ film: randoFilm })
   }
 
-  peopleDataArrivalHandler(data) {
+  navDataArrivalHandler(data) {
     console.log(data.results)
-    this.setState({ peopleStore: data.results, displayedCards: data.results })
-  }
-
-  planetsDataArrivalHandler(data) {
-    console.log(data.results)
-    // this.setState({ peopleStore: data.results, displayedCards: data.results })
-  }
-
-  vehiclesDataArrivalHandler(data) {
-    console.log(data)
-    // this.setState({ peopleStore: data.results, displayedCards: data.results })
+    this.setState({ displayedCards: data.results })
   }
 
 
@@ -48,17 +38,17 @@ class App extends Component {
       case 'people':
         console.log('people button clicked')
         //eventually, check peopleStore first. OR maybe use APIHelper to handle redundant API calls do I care about API calls?
-        this.APIGuy.getAll('people', (data) => this.peopleDataArrivalHandler(data))
+        this.APIGuy.getAll('people', (data) => this.navDataArrivalHandler(data))
         break
       case 'planets':
         console.log('planets button clicked')
 
-        this.APIGuy.getAll('planets', (data) => this.planetsDataArrivalHandler(data))
+        this.APIGuy.getAll('planets', (data) => this.navDataArrivalHandler(data))
         break
       case 'vehicles':
         console.log('vehicles button clicked')
 
-        this.APIGuy.getAll('vehicles', (data) => this.vehiclesDataArrivalHandler(data))
+        this.APIGuy.getAll('vehicles', (data) => this.navDataArrivalHandler(data))
         break
       default:
         console.log('bad button string input')
