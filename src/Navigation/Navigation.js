@@ -9,6 +9,7 @@ export default class Navigation extends Component {
   click(button) {
     this.props.handleClick(button)
   }
+  
   render() {
     return (
       <div className="navigation">

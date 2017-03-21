@@ -27,10 +27,18 @@ class App extends Component {
     this.setState({ film: randoFilm })
   }
 
+  peopleDataArrivalHandler(data) {
+    console.log(data.results)
+    this.setState({ peopleStore: data.results, displayedCards: data.results })
+  }
+
+
   handleClick(button) {
     switch (button) {
       case 'people':
         console.log('people button clicked')
+        //eventually, check peopleStore first. OR maybe use APIHelper to handle redundant API calls do I care about API calls? 
+        this.APIGuy.getAll('people', (data) => this.peopleDataArrivalHandler(data))
 
         break;
       default:
