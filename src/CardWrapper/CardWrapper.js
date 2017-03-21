@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
-import Card from '../Card/Card'
+import PeopleCard from '../Cards/PeopleCard'
+// import PlanetCard from '../Cards/PlanetCard'
+// import VehicleCard from '../Cards/VehicleCard'
 
-const CardWrapper = ({ display, api }) => {
-  const cards = display.map((card, i) => <Card key={i} api={api} info={card} />)
+
+const CardWrapper = ({ display, api, cardType }) => {
+  // React.createElement(cardType, {})
+  const cards = display.map((card, i) => <PeopleCard key={i} api={api} info={card} />)
   return (
     <div className="card-wrapper">
       { cards }

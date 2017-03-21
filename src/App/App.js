@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       film: { opening_crawl: '', title: '' },
       displayedCards: []
-      }
+    }
   }
 
   componentDidMount() {

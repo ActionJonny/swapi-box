@@ -19,8 +19,12 @@ class Card extends Component {
   }
 
   componentWillMount() {
-    fetch(this.props.info.species).then(result => result.json()).then(data => this.setState({species: data.name}))
-    fetch(this.props.info.homeworld).then(result => result.json()).then(data => this.setState({homeworld: data.name, homePop: data.population}))
+    fetch(this.props.info.species)
+      .then(result => result.json())
+      .then(data => this.setState({species: data.name}))
+    fetch(this.props.info.homeworld)
+      .then(result => result.json())
+      .then(data => this.setState({homeworld: data.name, homePop: data.population}))
   }
 }
 
