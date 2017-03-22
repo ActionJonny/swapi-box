@@ -35,7 +35,7 @@ class App extends Component {
   navDataArrivalHandler(data, buttonType) {
     data.results.forEach(obj => {
       Object.assign(obj, { buttonType })
-      Object.assign(obj, { favoriteToggle:false })
+      Object.assign(obj, { favoriteToggle: false })
 
     })
     this.setState({ displayedCards: data.results })
