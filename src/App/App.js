@@ -14,6 +14,8 @@ class App extends Component {
     this.state = {
       film: { opening_crawl: '', title: '' },
       displayedCards: [{buttonType: 'people'}],
+      favoriteToggle: false,
+      favoriteArray: [],
     }
   }
 
@@ -35,14 +37,31 @@ class App extends Component {
     this.setState({ displayedCards: data.results })
   }
 
+  toggleDisplayFavorite() {
+    this.setState({ favoriteToggle: !this.state.favoriteToggle })
+  }
+
+  addFavorites(cardData) {
+    this.state.favoriteArray.push(cardData)
+    this.setState({ favoriteArray: this.state.favoriteArray })
+  }
+
+  removeFavorites(cardData) {
+    const updatedFavorites = this.state.favoriteArray.filter(card => {
+      return card.name !== cardData.name
+    })
+    this.setState({ favoriteArray: updatedFavorites })
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <h2>Welcome to SWAPIbox!</h2>
+          <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
           <Navigation handleClick={this.handleClick.bind(this)}/>
         </div>
-        <CardWrapper api={this.APIGuy} display={this.state.displayedCards}/>
+        <CardWrapper removeFavorites={ (data) => this.removeFavorites(data) } addFavorites={ (data) => this.addFavorites(data) } favoriteArray={this.state.favoriteArray} favoriteToggle={this.state.favoriteToggle} api={this.APIGuy} display={this.state.displayedCards}/>
         <FilmScroll film={this.state.film}/>
       </div>
     )

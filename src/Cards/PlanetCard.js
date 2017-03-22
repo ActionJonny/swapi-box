@@ -10,10 +10,21 @@ class Card extends Component {
     }
   }
 
+
+
+  handleFavorite() {
+    if(this.state.favorite) {
+      this.props.removeFavorites(this.props.info)
+    } else {
+      this.props.addFavorites(this.props.info)
+    }
+    this.setState({ favorite: !this.state.favorite })
+  }
+
   render() {
     return (
       <div className="card">
-      <button onClick={ () => this.setState({ favorite: !this.state.favorite }) } className={this.state.favorite ? 'favIcon' : 'nonFavIcon'}></button>
+      <button onClick={ () => this.handleFavorite() } className={this.state.favorite ? 'favIcon' : 'nonFavIcon'}></button>
         <p>Name: { this.props.info.name }</p>
         <p>Terrain: { this.props.info.terrain } </p>
         <p>Population: { this.props.info.population }</p>
@@ -21,6 +32,10 @@ class Card extends Component {
         <br />
       </div>
     )
+  }
+
+  componentDidMount() {
+    this.setState({ favorite: this.props.favoriteToggle })
   }
 
   componentWillMount() {
