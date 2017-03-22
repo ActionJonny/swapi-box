@@ -9,8 +9,6 @@ class Card extends Component {
     }
   }
 
-
-
   handleFavorite() {
     if(this.props.info.favoriteToggle) {
       this.props.removeFavorites(this.props.info)
@@ -31,7 +29,6 @@ class Card extends Component {
       </div>
     )
   }
-
 
   componentWillMount() {
     this.props.info.residents.map((apiUrl) => {
