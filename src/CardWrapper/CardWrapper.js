@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PeopleCard from '../Cards/PeopleCard'
 import PlanetCard from '../Cards/PlanetCard'
 import VehicleCard from '../Cards/VehicleCard'
+import './CardWrapper.css'
 
 const components = {
   planets: PlanetCard,

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Navigation.css'
 
 export default class Navigation extends Component {
   constructor () {
@@ -13,9 +14,9 @@ export default class Navigation extends Component {
   render() {
     return (
       <div className="navigation">
-        <button onClick={() => this.click('people')} >People</button>
-        <button onClick={() => this.click('planets')}>Planets</button>
-        <button onClick={() => this.click('vehicles')}>Vehicles</button>
+        <button className="navButton" onClick={() => this.click('people')} >People</button>
+        <button className="navButton" onClick={() => this.click('planets')}>Planets</button>
+        <button className="navButton" onClick={() => this.click('vehicles')}>Vehicles</button>
       </div>
     )
   }

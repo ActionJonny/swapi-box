@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
+import './Card.css'
 
 class Card extends Component {
   constructor() {
     super()
-    this.state = {homeworld: '?', homePop: '0', species: ''}
+    this.state = {
+      homeworld: '?',
+      homePop: '0',
+      species: '',
+      favorite: false
+    }
   }
 
   render() {
     return (
       <div className="card">
-        <button>Star</button>
-        <p>{ this.props.info.name }</p>
-        <p>{ this.state.species } </p>
-        <p>{ this.state.homeworld }</p>
-        <p>{ this.state.homePop }</p>
+        <button onClick={ () => this.setState({ favorite: !this.state.favorite }) } className={this.state.favorite ? 'favIcon' : 'nonFavIcon'}></button>
+        <p>Name: { this.props.info.name }</p>
+        <p>Species: { this.state.species } </p>
+        <p>Homeworld: { this.state.homeworld }</p>
+        <p>Planet Population: { this.state.homePop }</p>
         <br />
       </div>
     )

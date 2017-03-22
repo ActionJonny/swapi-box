@@ -5,7 +5,6 @@ import FilmScroll from '../FilmScroll/FilmScroll'
 import Navigation from '../Navigation/Navigation'
 import CardWrapper from '../CardWrapper/CardWrapper'
 
-
 const getRandomArbitrary = (min, max) => (Math.random() * (max - min) + min).toFixed(0)*1
 
 class App extends Component {

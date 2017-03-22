@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
+import './Card.css'
 
 class Card extends Component {
+  constructor() {
+    super()
+    this.state = {
+      favorite: false
+    }
+  }
+
   render() {
     console.log(this.props.info);
     return (
       <div className="card">
-        <button>Star</button>
+      <button onClick={ () => this.setState({ favorite: !this.state.favorite }) } className={this.state.favorite ? 'favIcon' : 'nonFavIcon'}></button>
         <p>Name: { this.props.info.name }</p>
         <p>Model: { this.props.info.model } </p>
         <p>Class: { this.props.info.vehicle_class }</p>
