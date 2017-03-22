@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 import './Card.css'
 
 class Card extends Component {
-  constructor() {
-    super()
-    this.state = {
-      favorite: false
+  handleFavorite() {
+    if(this.props.info.favoriteToggle) {
+      this.props.removeFavorites(this.props.info)
+    } else {
+      this.props.addFavorites(this.props.info)
     }
   }
 
   render() {
-    console.log(this.props.info);
     return (
       <div className="card">
-      <button onClick={ () => this.setState({ favorite: !this.state.favorite }) } className={this.state.favorite ? 'favIcon' : 'nonFavIcon'}></button>
+      <button onClick={ () => this.handleFavorite() } className={this.props.info.favoriteToggle ? 'favIcon' : 'nonFavIcon'}></button>
         <p>Name: { this.props.info.name }</p>
         <p>Model: { this.props.info.model } </p>
         <p>Class: { this.props.info.vehicle_class }</p>
