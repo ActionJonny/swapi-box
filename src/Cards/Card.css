@@ -1,0 +1,24 @@
+.card {
+  width: 20%;
+  margin: 5px 0;
+  border: 2px solid #00236D;
+  border-radius: 50px;
+  text-align: left;
+  padding: 15px;
+}
+
+.nonFavIcon, .favIcon {
+  border: none;
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  margin-left: 17%;
+}
+
+.nonFavIcon {
+  background: url('images/death_star.svg') no-repeat;
+}
+
+.favIcon {
+  background: url('images/death_star_clicked.svg') no-repeat;
+}
