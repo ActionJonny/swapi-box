@@ -14,8 +14,9 @@ const CardWrapper = ({ display, api, favoriteToggle, addFavorites, removeFavorit
   if(favoriteToggle) {
     display = favoriteArray
   }
+  console.log(display)
   const CardType = components[display[0].buttonType]
-  const cards = display.map((card, i) => <CardType favoriteToggle={favoriteToggle} removeFavorites={removeFavorites} addFavorites={addFavorites} key={i} api={api} info={card} />)
+  const cards = display.map((card, i) => <CardType removeFavorites={removeFavorites} addFavorites={addFavorites} key={i} api={api} info={card} />)
   return (
     <div className="card-wrapper">
       { cards }

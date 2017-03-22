@@ -33,7 +33,11 @@ class App extends Component {
   }
 
   navDataArrivalHandler(data, buttonType) {
-    data.results.forEach(obj => Object.assign(obj, { buttonType }))
+    data.results.forEach(obj => {
+      Object.assign(obj, { buttonType })
+      Object.assign(obj, { favoriteToggle:false })
+
+    })
     this.setState({ displayedCards: data.results })
   }
 
@@ -42,11 +46,13 @@ class App extends Component {
   }
 
   addFavorites(cardData) {
+    cardData.favoriteToggle = true
     this.state.favoriteArray.push(cardData)
     this.setState({ favoriteArray: this.state.favoriteArray })
   }
 
   removeFavorites(cardData) {
+    cardData.favoriteToggle = false
     const updatedFavorites = this.state.favoriteArray.filter(card => {
       return card.name !== cardData.name
     })
