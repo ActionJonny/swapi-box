@@ -7,6 +7,6 @@ describe('Navigation', () => {
   it('has a component of "FilmScroll"', () => {
     const wrapper = shallow(<Navigation />)
 
-    expect(wrapper.find('button').length).toBe(3)
+    expect(wrapper.find('button').length).toBe(5)
   });
 });
