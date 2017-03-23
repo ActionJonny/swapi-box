@@ -23,13 +23,27 @@ class Card extends Component {
     return (
       <div className="card">
         <button onClick={ () => this.handleFavorite() } className={this.props.info.favoriteToggle ? 'favIcon' : 'nonFavIcon'}></button>
-        <p>Name: { this.props.info.name }</p>
-        <p>Species: { this.state.species } </p>
-        <p>Homeworld: { this.state.homeworld }</p>
-        <p>Planet Population: { this.state.homePop }</p>
+        <p className="first-p-tag"><span className="text-color">Name:</span> { this.props.info.name }</p>
+        <p><span className="text-color">Species:</span> { this.state.species } </p>
+        <p><span className="text-color">Homeworld:</span> { this.state.homeworld }</p>
+        <p><span className="text-color">Planet Population:</span> { this.state.homePop }</p>
         <br />
       </div>
     )
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(this.props.info.species !== prevProps.info.species) {
+      fetch(this.props.info.species)
+        .then(result => result.json())
+        .then(data => this.setState({species: data.name}))
+    }
+
+    if(this.props.info.homeworld !== prevProps.info.homeworld) {
+      fetch(this.props.info.homeworld)
+        .then(result => result.json())
+        .then(data => this.setState({homeworld: data.name, homePop: data.population}))
+    }
   }
 
   componentDidMount() {

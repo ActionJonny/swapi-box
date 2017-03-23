@@ -17,14 +17,28 @@ class Card extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(JSON.stringify(this.props.info.residents) !== JSON.stringify(prevProps.info.residents)) {
+      this.props.info.residents.map((apiUrl) => {
+        fetch(apiUrl)
+          .then(result => result.json())
+          .then(data => {
+            this.state.nameList = []
+            this.state.nameList.push(data.name)
+            this.setState({nameList: this.state.nameList})
+          });
+      })
+    }
+  }
+
   render() {
     return (
       <div className="card">
       <button onClick={ () => this.handleFavorite() } className={this.props.info.favoriteToggle ? 'favIcon' : 'nonFavIcon'}></button>
-        <p>Name: { this.props.info.name }</p>
-        <p>Terrain: { this.props.info.terrain } </p>
-        <p>Population: { this.props.info.population }</p>
-        <p>Residents: { this.state.nameList.join(', ') || 'none'}</p>
+        <p className="first-p-tag"><span className="text-color">Name:</span> { this.props.info.name }</p>
+        <p><span className="text-color">Terrain:</span> { this.props.info.terrain } </p>
+        <p><span className="text-color">Population:</span> { this.props.info.population }</p>
+        <p><span className="text-color">Residents: </span>{ this.state.nameList.join(', ') || 'none'}</p>
         <br />
       </div>
     )

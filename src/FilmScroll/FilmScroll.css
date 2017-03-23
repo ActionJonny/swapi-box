@@ -1,0 +1,14 @@
+.film-scroll {
+  background-color: #00236D;
+  padding: 25px 20px;
+  text-align: left;
+  height: initial;
+  width: 20%;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 800px) {
+  .film-scroll {
+    display: none;
+  }
+}

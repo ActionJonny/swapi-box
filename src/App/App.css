@@ -1,3 +1,46 @@
+button {
+  width: 100px;
+  background-color: #00236D;
+  color: #E5E5EC;
+  margin: auto;
+  padding: 5px;
+  border-radius: 5px;
+  border-top: 2px solid #E5E5EC;
+  border-right: 2px solid #938288;
+  border-bottom: 2px solid #938288;
+  border-left: 2px solid #E5E5EC;
+}
+
 .App {
+  background-color: #5468B1;
+  display: flex;
   text-align: center;
+  width: 100%;
+}
+
+.App .left-container {
+  width: 20%;
+}
+
+.App .right-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.App .centering-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1440px) {
+  .App {
+    background-color: black;
+  }
+  
+  .App .r2d2-banner {
+    height: 400px;
+    width: 100%;
+    margin: 0 auto;
+    background: url(./images/r2d2-banner.png) no-repeat;
+  }
 }

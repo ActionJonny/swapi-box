@@ -1,3 +1,19 @@
 .navButton {
   width: 100px;
+  background-color: #00236D;
+  color: #E5E5EC;
+  margin: 10px 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border-top: 2px solid #E5E5EC;
+  border-right: 2px solid #938288;
+  border-bottom: 2px solid #938288;
+  border-left: 2px solid #E5E5EC;
+}
+
+@media screen and (max-width: 600px) {
+  .navButton{
+    width: 65px;
+    margin: 10px 10px;
+  }
 }
