@@ -64,11 +64,13 @@ class App extends Component {
       <div className="App">
         <FilmScroll className="left-container" film={this.state.film}/>
         <div className="App-header right-container">
-          <h2>Welcome to SWapiBox!</h2>
-          <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
-          <Navigation handleClick={this.handleClick.bind(this)}/>
-          <CardWrapper className="right-container card" removeFavorites={ (data) => this.removeFavorites(data) } addFavorites={ (data) => this.addFavorites(data) } favoriteArray={this.state.favoriteArray} favoriteToggle={this.state.favoriteToggle} api={this.APIGuy} display={this.state.displayedCards}/>
-        </div>
+          <div className="centering-wrapper">
+            <h2>Welcome to SWapiBox!</h2>
+            <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
+            <Navigation handleClick={this.handleClick.bind(this)}/>
+            <CardWrapper className="card" removeFavorites={ (data) => this.removeFavorites(data) } addFavorites={ (data) => this.addFavorites(data) } favoriteArray={this.state.favoriteArray} favoriteToggle={this.state.favoriteToggle} api={this.APIGuy} display={this.state.displayedCards}/>
+          </div>
+      </div>
       </div>
     )
   }

@@ -8,9 +8,4 @@ html, body {
   color: #E5E5EC;
   width: 100%;
   height: 100%;
-  max-width: 1500px;
-}
-
-@media screen and (max-width: 600px) {
-
 }
