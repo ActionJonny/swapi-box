@@ -17,6 +17,21 @@ class Card extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(JSON.stringify(this.props.info.residents) !== JSON.stringify(prevProps.info.residents)) {
+      this.props.info.residents.map((apiUrl) => {
+        fetch(apiUrl)
+          .then(result => result.json())
+          .then(data => {
+            this.state.nameList = []
+            this.state.nameList.push(data.name)
+            this.setState({nameList: this.state.nameList})
+          });
+      })
+    }
+
+  }
+
   render() {
     return (
       <div className="card">
