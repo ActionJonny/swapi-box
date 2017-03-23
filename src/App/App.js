@@ -78,6 +78,7 @@ class App extends Component {
       <div className="App">
         <FilmScroll className="left-container" film={this.state.film}/>
         <div className="App-header right-container">
+
         <div className="centering-wrapper">
           <h2>Welcome to SWapiBox!</h2>
           <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
@@ -90,9 +91,10 @@ class App extends Component {
             favoriteToggle={this.state.favoriteToggle}
             api={this.APIGuy}
             display={this.state.displayedCards}/>
+          <div className="r2d2-banner"></div>
         </div>
       </div>
-      </div>
+    </div>
     )
   }
 }
