@@ -18,7 +18,6 @@ const CardWrapper = ({ display, favoriteToggle, addFavorites, removeFavorites, f
   return (
     <div className="card-wrapper">
       { cards }
-      <button onClick={ () => nextClick() } >More</button>
     </div>
   )
 }
