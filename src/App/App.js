@@ -62,13 +62,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Welcome to SWAPIbox!</h2>
+        <FilmScroll className="left-container" film={this.state.film}/>
+        <div className="App-header right-container">
+          <h2>Welcome to SWapiBox!</h2>
           <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
           <Navigation handleClick={this.handleClick.bind(this)}/>
+          <CardWrapper className="right-container card" removeFavorites={ (data) => this.removeFavorites(data) } addFavorites={ (data) => this.addFavorites(data) } favoriteArray={this.state.favoriteArray} favoriteToggle={this.state.favoriteToggle} api={this.APIGuy} display={this.state.displayedCards}/>
         </div>
-        <CardWrapper removeFavorites={ (data) => this.removeFavorites(data) } addFavorites={ (data) => this.addFavorites(data) } favoriteArray={this.state.favoriteArray} favoriteToggle={this.state.favoriteToggle} api={this.APIGuy} display={this.state.displayedCards}/>
-        <FilmScroll film={this.state.film}/>
       </div>
     )
   }

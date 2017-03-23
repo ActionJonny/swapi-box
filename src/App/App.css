@@ -1,3 +1,30 @@
+button {
+  width: 100px;
+  background-color: #00236D;
+  color: #E5E5EC;
+  margin: auto;
+  padding: 5px;
+  border-radius: 5px;
+  border-top: 2px solid #E5E5EC;
+  border-right: 2px solid #938288;
+  border-bottom: 2px solid #938288;
+  border-left: 2px solid #E5E5EC;
+}
+
 .App {
+  background-color: #5468B1;
+  display: flex;
   text-align: center;
+}
+
+.App .card {
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+  .App .right-container {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+  }
 }
