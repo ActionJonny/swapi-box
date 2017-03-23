@@ -69,8 +69,9 @@ class App extends Component {
             <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
             <Navigation handleClick={this.handleClick.bind(this)}/>
             <CardWrapper className="card" removeFavorites={ (data) => this.removeFavorites(data) } addFavorites={ (data) => this.addFavorites(data) } favoriteArray={this.state.favoriteArray} favoriteToggle={this.state.favoriteToggle} api={this.APIGuy} display={this.state.displayedCards}/>
+            <div className="r2d2-banner"></div>
           </div>
-      </div>
+        </div>
       </div>
     )
   }

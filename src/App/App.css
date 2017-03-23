@@ -31,3 +31,16 @@ button {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+@media screen and (min-width: 1440px) {
+  .App {
+    background-color: black;
+  }
+  
+  .App .r2d2-banner {
+    height: 400px;
+    width: 100%;
+    margin: 0 auto;
+    background: url(./images/r2d2-banner.png) no-repeat;
+  }
+}
