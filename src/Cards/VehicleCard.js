@@ -14,10 +14,10 @@ class Card extends Component {
     return (
       <div className="card">
       <button onClick={ () => this.handleFavorite() } className={this.props.info.favoriteToggle ? 'favIcon' : 'nonFavIcon'}></button>
-        <p className="first-p-tag"><span className="text-color">Name:</span>{ this.props.info.name }</p>
-        <p><span className="text-color">Model:</span> { this.props.info.model } </p>
-        <p><span className="text-color">Class:</span> { this.props.info.vehicle_class }</p>
-        <p><span className="text-color">Number of Passengers:</span> { this.props.info.passengers }</p>
+        <p className="first-p-tag"><span className="text-color">Name: </span>{ this.props.info.name }</p>
+        <p><span className="text-color">Model: </span> { this.props.info.model } </p>
+        <p><span className="text-color">Class: </span> { this.props.info.vehicle_class }</p>
+        <p><span className="text-color">Number of Passengers: </span> { this.props.info.passengers }</p>
         <br />
       </div>
     )
