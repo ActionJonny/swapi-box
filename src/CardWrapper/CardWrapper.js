@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import CardBase from '../Cards/CardBase'
 import './CardWrapper.css'
 
 
-const CardWrapper = ({ display, favoriteToggle, addFavorites, removeFavorites, favoriteArray, nextClick }) => {
+const CardWrapper = ({ display, favoriteToggle, addFavorites, removeFavorites, favoriteArray }) => {
   if(favoriteToggle) {
     display = favoriteArray
   }

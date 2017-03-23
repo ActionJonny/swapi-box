@@ -25,5 +25,5 @@ export default class Navigation extends Component {
 }
 
 Navigation.propTypes = {
-  handleClick: React.PropTypes.function,
+  handleClick: React.PropTypes.func,
 }

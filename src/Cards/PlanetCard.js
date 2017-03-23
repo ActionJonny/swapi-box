@@ -19,13 +19,13 @@ class Card extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(JSON.stringify(this.props.info.residents) !== JSON.stringify(prevProps.info.residents)) {
-      this.props.info.residents.map((apiUrl) => {
+      const newData = []
+      this.props.info.residents.forEach((apiUrl) => {
         fetch(apiUrl)
           .then(result => result.json())
           .then(data => {
-            this.state.nameList = []
-            this.state.nameList.push(data.name)
-            this.setState({nameList: this.state.nameList})
+            newData.push(data.name)
+            this.setState({nameList: newData})
           });
       })
     }
@@ -45,7 +45,7 @@ class Card extends Component {
   }
 
   componentWillMount() {
-    this.props.info.residents.map((apiUrl) => {
+    this.props.info.residents.forEach((apiUrl) => {
       fetch(apiUrl)
         .then(result => result.json())
         .then(data => {
