@@ -63,9 +63,14 @@ class App extends Component {
     this.setState({ favoriteArray: updatedFavorites })
   }
 
-  nextPage(button) {
+  nextPage() {
     if(!this.next) {return}
     fetch(this.next).then(result => result.json()).then(data => this.navDataArrivalHandler(data, this.lastButton))
+  }
+
+  prevPage() {
+    if(!this.previous) {return}
+    fetch(this.previous).then(result => result.json()).then(data => this.navDataArrivalHandler(data, this.lastButton))
   }
 
   render() {
@@ -74,7 +79,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Welcome to SWAPIbox!</h2>
           <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
-          <Navigation handleClick={this.handleClick.bind(this)}/>
+          <Navigation prevClick={ () => this.prevPage() } nextClick={ () => this.nextPage() } handleClick={ this.handleClick.bind(this) } />
         </div>
         <CardWrapper
           nextClick={() => this.nextPage() }
