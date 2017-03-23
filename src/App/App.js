@@ -29,15 +29,19 @@ class App extends Component {
   }
 
   handleClick(button) {
+    //This click is from one of three main nav buttons
+    this.lastButton = button
+    this.setState({favoriteToggle: false})
     this.APIGuy.getAll(button, (data) => this.navDataArrivalHandler(data, button))
   }
 
   navDataArrivalHandler(data, buttonType) {
+    this.next = data.next
+    this.previous = data.previous
     data.results.forEach(obj => {
       Object.assign(obj, { buttonType })
-      Object.assign(obj, { favoriteToggle: false })
-
-    })
+      Object.assign(obj, { favoriteToggle: this.state.favoriteArray.find(card => card.name === obj.name) })
+      })
     this.setState({ displayedCards: data.results })
   }
 
@@ -59,20 +63,38 @@ class App extends Component {
     this.setState({ favoriteArray: updatedFavorites })
   }
 
+  nextPage() {
+    if(!this.next) {return}
+    fetch(this.next).then(result => result.json()).then(data => this.navDataArrivalHandler(data, this.lastButton))
+  }
+
+  prevPage() {
+    if(!this.previous) {return}
+    fetch(this.previous).then(result => result.json()).then(data => this.navDataArrivalHandler(data, this.lastButton))
+  }
+
   render() {
     return (
       <div className="App">
         <FilmScroll className="left-container" film={this.state.film}/>
         <div className="App-header right-container">
-          <div className="centering-wrapper">
-            <h2>Welcome to SWapiBox!</h2>
-            <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
-            <Navigation handleClick={this.handleClick.bind(this)}/>
-            <CardWrapper className="card" removeFavorites={ (data) => this.removeFavorites(data) } addFavorites={ (data) => this.addFavorites(data) } favoriteArray={this.state.favoriteArray} favoriteToggle={this.state.favoriteToggle} api={this.APIGuy} display={this.state.displayedCards}/>
-            <div className="r2d2-banner"></div>
-          </div>
+
+        <div className="centering-wrapper">
+          <h2>Welcome to SWapiBox!</h2>
+          <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
+          <Navigation prevClick={ () => this.prevPage() } nextClick={ () => this.nextPage() } handleClick={this.handleClick.bind(this)}/>
+          <CardWrapper
+            className="card"
+            removeFavorites={ (data) => this.removeFavorites(data) }
+            addFavorites={ (data) => this.addFavorites(data) }
+            favoriteArray={this.state.favoriteArray}
+            favoriteToggle={this.state.favoriteToggle}
+            api={this.APIGuy}
+            display={this.state.displayedCards}/>
+          <div className="r2d2-banner"></div>
         </div>
       </div>
+    </div>
     )
   }
 }

@@ -32,6 +32,20 @@ class Card extends Component {
     )
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(this.props.info.species !== prevProps.info.species) {
+      fetch(this.props.info.species)
+        .then(result => result.json())
+        .then(data => this.setState({species: data.name}))
+    }
+
+    if(this.props.info.homeworld !== prevProps.info.homeworld) {
+      fetch(this.props.info.homeworld)
+        .then(result => result.json())
+        .then(data => this.setState({homeworld: data.name, homePop: data.population}))
+    }
+  }
+
   componentDidMount() {
     fetch(this.props.info.species)
       .then(result => result.json())

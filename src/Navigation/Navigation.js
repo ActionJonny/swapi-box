@@ -14,10 +14,16 @@ export default class Navigation extends Component {
   render() {
     return (
       <div className="navigation">
+      <button onClick={ () => this.props.prevClick() } >Prev</button>
         <button className="navButton" onClick={() => this.click('people')} >People</button>
         <button className="navButton" onClick={() => this.click('planets')}>Planets</button>
         <button className="navButton" onClick={() => this.click('vehicles')}>Vehicles</button>
+        <button onClick={ () => this.props.nextClick() } >More</button>
       </div>
     )
   }
+}
+
+Navigation.propTypes = {
+  handleClick: React.PropTypes.function,
 }
