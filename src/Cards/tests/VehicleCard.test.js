@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
-import Card from '../VehicleCard';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { shallow, mount } from 'enzyme'
+import Card from '../VehicleCard'
 
 describe('vehicle card', () => {
 
@@ -10,7 +10,7 @@ describe('vehicle card', () => {
     const wrapper = shallow(<Card removeFavorites={fake} addFavorites={fake} info={{ favoriteToggle: true }} />)
 
     expect(wrapper.find('.card').length).toBe(1)
-  });
+  })
 
   it('Card has a favorite button to click', () => {
     const fake = jest.fn()
@@ -19,6 +19,6 @@ describe('vehicle card', () => {
     favButton.simulate('click')
 
     expect(fake).toHaveBeenCalledTimes(1)
-  });
+  })
 
-});
+})

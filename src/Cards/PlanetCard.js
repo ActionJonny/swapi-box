@@ -26,7 +26,7 @@ class Card extends Component {
           .then(data => {
             newData.push(data.name)
             this.setState({nameList: newData})
-          });
+          })
       })
     }
   }
@@ -51,7 +51,7 @@ class Card extends Component {
         .then(data => {
           this.state.nameList.push(data.name)
           this.setState({nameList: this.state.nameList})
-        });
+        })
     })
   }
 }
