@@ -32,11 +32,11 @@ button {
   margin: 0 auto;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1465px) {
   .App {
     background-color: black;
   }
-  
+
   .App .r2d2-banner {
     height: 400px;
     width: 100%;
