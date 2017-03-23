@@ -17,6 +17,4 @@ describe('App', () => {
 
     expect(wrapper.state().favoriteToggle).toBe(true)
   });
-
-  
 });
