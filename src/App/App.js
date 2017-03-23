@@ -29,22 +29,19 @@ class App extends Component {
   }
 
   handleClick(button) {
+    //This click is from one of three main nav buttons
+    this.lastButton = button
     this.setState({favoriteToggle: false})
     this.APIGuy.getAll(button, (data) => this.navDataArrivalHandler(data, button))
   }
 
   navDataArrivalHandler(data, buttonType) {
-    console.log(this)
+    this.next = data.next
+    this.previous = data.previous
     data.results.forEach(obj => {
       Object.assign(obj, { buttonType })
-      if (this.state.favoriteArray.find(card => card.name === obj.name)) {
-        Object.assign(obj, { favoriteToggle: true })
-      } else {
-        Object.assign(obj, { favoriteToggle: false })
-      }
-
-
-    })
+      Object.assign(obj, { favoriteToggle: this.state.favoriteArray.find(card => card.name === obj.name) })
+      })
     this.setState({ displayedCards: data.results })
   }
 
@@ -66,6 +63,11 @@ class App extends Component {
     this.setState({ favoriteArray: updatedFavorites })
   }
 
+  nextPage(button) {
+    if(!this.next) {return}
+    fetch(this.next).then(result => result.json()).then(data => this.navDataArrivalHandler(data, this.lastButton))
+  }
+
   render() {
     return (
       <div className="App">
@@ -74,7 +76,14 @@ class App extends Component {
           <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
           <Navigation handleClick={this.handleClick.bind(this)}/>
         </div>
-        <CardWrapper removeFavorites={ (data) => this.removeFavorites(data) } addFavorites={ (data) => this.addFavorites(data) } favoriteArray={this.state.favoriteArray} favoriteToggle={this.state.favoriteToggle} api={this.APIGuy} display={this.state.displayedCards}/>
+        <CardWrapper
+          nextClick={() => this.nextPage() }
+          removeFavorites={ (data) => this.removeFavorites(data) }
+          addFavorites={ (data) => this.addFavorites(data) }
+          favoriteArray={this.state.favoriteArray}
+          favoriteToggle={this.state.favoriteToggle}
+          api={this.APIGuy}
+          display={this.state.displayedCards}/>
         <FilmScroll film={this.state.film}/>
       </div>
     )

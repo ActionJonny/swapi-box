@@ -3,7 +3,7 @@ import CardBase from '../Cards/CardBase'
 import './CardWrapper.css'
 
 
-const CardWrapper = ({ display, favoriteToggle, addFavorites, removeFavorites, favoriteArray }) => {
+const CardWrapper = ({ display, favoriteToggle, addFavorites, removeFavorites, favoriteArray, nextClick }) => {
   if(favoriteToggle) {
     display = favoriteArray
   }
@@ -18,6 +18,7 @@ const CardWrapper = ({ display, favoriteToggle, addFavorites, removeFavorites, f
   return (
     <div className="card-wrapper">
       { cards }
+      <button onClick={ () => nextClick() } >More</button>
     </div>
   )
 }
