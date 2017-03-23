@@ -78,19 +78,20 @@ class App extends Component {
       <div className="App">
         <FilmScroll className="left-container" film={this.state.film}/>
         <div className="App-header right-container">
+        <div className="centering-wrapper">
           <h2>Welcome to SWapiBox!</h2>
           <button onClick={ () => this.toggleDisplayFavorite() }>Favorites</button>
-          <Navigation prevClick={ () => this.prevPage() } nextClick={ () => this.nextPage() } handleClick={ this.handleClick.bind(this) } />
+          <Navigation prevClick={ () => this.prevPage() } nextClick={ () => this.nextPage() } handleClick={this.handleClick.bind(this)}/>
+          <CardWrapper
+            className="card"
+            removeFavorites={ (data) => this.removeFavorites(data) }
+            addFavorites={ (data) => this.addFavorites(data) }
+            favoriteArray={this.state.favoriteArray}
+            favoriteToggle={this.state.favoriteToggle}
+            api={this.APIGuy}
+            display={this.state.displayedCards}/>
         </div>
-        <CardWrapper
-          className="right-container card"
-          nextClick={() => this.nextPage() }
-          removeFavorites={ (data) => this.removeFavorites(data) }
-          addFavorites={ (data) => this.addFavorites(data) }
-          favoriteArray={this.state.favoriteArray}
-          favoriteToggle={this.state.favoriteToggle}
-          api={this.APIGuy}
-          display={this.state.displayedCards}/>
+      </div>
       </div>
     )
   }

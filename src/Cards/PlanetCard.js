@@ -29,7 +29,6 @@ class Card extends Component {
           });
       })
     }
-
   }
 
   render() {

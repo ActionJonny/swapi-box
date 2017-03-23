@@ -15,16 +15,19 @@ button {
   background-color: #5468B1;
   display: flex;
   text-align: center;
+  width: 100%;
 }
 
-.App .card {
-  justify-content: space-around;
+.App .left-container {
+  width: 20%;
 }
 
-@media screen and (max-width: 600px) {
-  .App .right-container {
-    text-align: center;
-    width: 100%;
-    margin: auto;
-  }
+.App .right-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.App .centering-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
 }
