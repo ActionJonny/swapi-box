@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './FilmScroll.css'
 
 const FilmScroll = ({ film }) => {
@@ -8,7 +8,7 @@ const FilmScroll = ({ film }) => {
       <p>{ film.title }</p>
       <p>{ film.release_date }</p>
     </div>
-  );
+  )
 }
 
 FilmScroll.propTypes = {
@@ -16,4 +16,4 @@ FilmScroll.propTypes = {
 }
 
 
-export default FilmScroll;
+export default FilmScroll

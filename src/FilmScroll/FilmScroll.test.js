@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
-import FilmScroll from './FilmScroll';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { shallow, mount } from 'enzyme'
+import FilmScroll from './FilmScroll'
 
 describe('FilmScroll', () => {
   const film = {
@@ -15,5 +15,5 @@ describe('FilmScroll', () => {
     const wrapper = shallow(<FilmScroll film={film} />)
 
     expect(wrapper.find('.film-scroll').length).toBe(1)
-  });
-});
+  })
+})

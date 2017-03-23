@@ -5,20 +5,13 @@ export default class APIHelper {
   }
 
   getAll(catagory, callback) {
-    // if (this.store[catagory]) {
-    //   console.log('no need for API!')
-    //   callback(this.store[catagory])
-    // } else {
-    //   console.log('had to hit API')
-      fetch(`${this.baseURL}${catagory}`)
-      .then((response) => {
-        return response.json()
-      })
-      .then((result) => {
-        this.store[catagory] = result
-        callback(result)
-      })
-    }
-  // }
-
+    fetch(`${this.baseURL}${catagory}`)
+    .then((response) => {
+      return response.json()
+    })
+    .then((result) => {
+      this.store[catagory] = result
+      callback(result)
+    })
+  }
 }
