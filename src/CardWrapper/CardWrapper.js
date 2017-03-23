@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
-import PeopleCard from '../Cards/PeopleCard'
-import PlanetCard from '../Cards/PlanetCard'
-import VehicleCard from '../Cards/VehicleCard'
+import CardBase from '../Cards/CardBase'
 import './CardWrapper.css'
 
-const components = {
-  planets: PlanetCard,
-  vehicles: VehicleCard,
-  people: PeopleCard
-}
 
-const CardWrapper = ({ display, api, favoriteToggle, addFavorites, removeFavorites, favoriteArray }) => {
+const CardWrapper = ({ display, favoriteToggle, addFavorites, removeFavorites, favoriteArray }) => {
   if(favoriteToggle) {
     display = favoriteArray
   }
@@ -21,8 +14,7 @@ const CardWrapper = ({ display, api, favoriteToggle, addFavorites, removeFavorit
       </div>
     )
   }
-  const CardType = components[display[0].buttonType]
-  const cards = display.map((card, i) => <CardType removeFavorites={removeFavorites} addFavorites={addFavorites} key={i} api={api} info={card} />)
+  const cards = display.map((card, i) => <CardBase removeFavorites={removeFavorites} addFavorites={addFavorites} key={i} info={card} />)
   return (
     <div className="card-wrapper">
       { cards }

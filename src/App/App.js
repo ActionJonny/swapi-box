@@ -29,13 +29,20 @@ class App extends Component {
   }
 
   handleClick(button) {
+    this.setState({favoriteToggle: false})
     this.APIGuy.getAll(button, (data) => this.navDataArrivalHandler(data, button))
   }
 
   navDataArrivalHandler(data, buttonType) {
+    console.log(this)
     data.results.forEach(obj => {
       Object.assign(obj, { buttonType })
-      Object.assign(obj, { favoriteToggle: false })
+      if (this.state.favoriteArray.find(card => card.name === obj.name)) {
+        Object.assign(obj, { favoriteToggle: true })
+      } else {
+        Object.assign(obj, { favoriteToggle: false })
+      }
+
 
     })
     this.setState({ displayedCards: data.results })
